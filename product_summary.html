@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product summary</title>
+    <link rel = "stylesheet" href = "css/iconfont.css">
+    <link rel = "stylesheet" href = "css/style.css">
+</head>
+<body>
+    <div class = "header">
+        <div class = "wrap header-box">
+            <img class = "logo-image" src = "images/logo2.png">
+            <div class = "search">
+                <div class = "container">
+                    <div class = "form">
+                        <input type = "text" class = "keyword" placeholder = "Search...">
+                        <button id = "icon">
+                            <span class = "iconfont">&#xe63d;</span>
+                        </button>
+                        <div id = "user"></div>
+                        <div class = "search-helper"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type = "text/javascript" src = "index.js"></script>
+    <div class = "body">
+        <div class = "left">
+            <div class = "search_button">
+                <label>Search: </label>
+                <button id = "save">Save</button>
+                <button id = "clear">Clear</button>
+            </div>
+            <div class = "proj_prod">
+                <div class = "product">Product</div>
+                <div class = "project">Project</div>
+            </div>
+            <div class = "prod_type">
+                <div class = prod_type_arrow><label id = "productType">Product Type:</label><img src ="images/dropdown_arrow.png" id = "drop-down"></div>
+                    <div class = "prodtype_list">
+                        <ul>
+                            <li><a href = "#">xiaomi</a></li>
+                            <li><a href = "#">iphone</a></li>
+                            <li><a href = "#">iwatch</a></li>
+                            <li><a href = "#">Huawei</a></li>
+                            <li><a href = "#">Samsung</a></li>
+                            <li><a href = "#">BB</a></li>  
+                        </ul>
+                    </div>       
+            </div>
+            <div id = "model_y"><label id = "modelYear">Model Year:</label> 
+                <input type = "number" id = "startYear">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "number" id = "endYear">
+            </div>
+            <div class = "technical_specifications">
+                <div class = "technical"><label id = "technical_speci">Techinical Specifications:</label><img src ="images/dropdown_arrow.png" id = "drop-down2"></div>
+                    <div class = "technical_list">
+                        <div class = "airflow">
+                            <img src = "images/updown4.png" class = "updown">&nbsp;&nbsp; Airflow(CFM)
+                                <div class = "whole_container">
+                                    <div class = "container">
+                                        <div class = "min-value numberVal1">
+                                            <input type = "number" min = "0" max = "100" value = "25" disabled>
+                                        </div> 
+                                        &nbsp;
+                                        <div class = "range-slider1">
+                                            <div class = "progress"></div>
+                                            <input type = "range" class = "range-min" min = "0" max = "100" value = "25">
+                                            <input type = "range" class = "range-max" min = "0" max = "100" value = "75">
+                                        </div>
+                                        &nbsp;
+                                        <div class = "max-value numberVal1">
+                                            <input type = "number" min = "0" max = "100" value = "75" disabled>
+                                        </div>
+                                    </div>
+                                </div>                         
+                        </div>
+                        <div class = "MaxPower">
+                            <img src = "images/updown4.png" class = "updown">&nbsp;&nbsp; Max Power(W)
+                                <div class = "whole_container">
+                                    <div class = "container">
+                                        <div class = "min-value numberVal2">
+                                            <input type = "number" min = "0" max = "100" value = "25" disabled>
+                                        </div> 
+                                        &nbsp;
+                                        <div class = "range-slider2">
+                                            <div class = "progress"></div>
+                                            <input type = "range" class = "range-min" min = "0" max = "100" value = "25">
+                                            <input type = "range" class = "range-max" min = "0" max = "100" value = "75">
+                                        </div>
+                                        &nbsp;
+                                        <div class = "max-value numberVal2">
+                                            <input type = "number" min = "0" max = "10000" value = "75" disabled>
+                                        </div>
+                                    </div>
+                                </div>                         
+                        </div>
+                        <div class = "Soundspeed">
+                            <img src = "images/updown4.png" class = "updown">&nbsp;&nbsp;Sound at max speed(dBA)
+                                <div class = "whole_container">
+                                    <div class = "container">
+                                        <div class = "min-value numberVal3">
+                                            <input type = "number" min = "0" max = "100" value = "25" disabled>
+                                        </div> 
+                                        &nbsp;
+                                        <div class = "range-slider3">
+                                            <div class = "progress"></div>
+                                            <input type = "range" class = "range-min" min = "0" max = "100" value = "25">
+                                            <input type = "range" class = "range-max" min = "0" max = "100" value = "75">
+                                        </div>
+                                        &nbsp;
+                                        <div class = "max-value numberVal3">
+                                            <input type = "number" min = "0" max = "100" value = "75" disabled>
+                                        </div>
+                                    </div>
+                                </div>                       
+                        </div>
+                        <div class = "Fansweep">
+                            <img src = "images/updown4.png" class = "updown">&nbsp;&nbsp; Fan sweep dimension(in)
+                                <div class = "whole_container">
+                                    <div class = "container">
+                                        <div class = "min-value numberVal4">
+                                            <input type = "number" min = "0" max = "100" value = "25" disabled>
+                                        </div> 
+                                        &nbsp;
+                                        <div class = "range-slider4">
+                                            <div class = "progress"></div>
+                                            <input type = "range" class = "range-min" min = "0" max = "100" value = "25">
+                                            <input type = "range" class = "range-max" min = "0" max = "100" value = "75">
+                                        </div>
+                                        &nbsp;
+                                        <div class = "max-value numberVal4">
+                                            <input type = "number" min = "0" max = "100" value = "75" disabled>
+                                        </div>
+                                    </div>
+                                </div>                        
+                        </div>
+                        <script src = "script.js"></script>
+                    </div>       
+            </div>
+        </div>
+        <div class = "right">
+            <h3 id = "item_name">HVAC Fans</h3>
+            <div class = "items">
+                <div class = "item1">
+                    <img class = "fans" src = "images/fans2.jpg">
+                    <div class = "information">
+                        <p>BigAss</p>
+                        <p>Haiku H Series</p>
+                        <p>$3150-S0-BC-04-01-C-01</p>
+                    </div>
+                    <div class = "features">
+                        <p>5,467CFM</p>
+                        <p>21.14 W at max speed</p>
+                        <p>35dBA at max speed</p>
+                        <p>60 fan sweep diameter</p>
+                    </div>
+                    <div class = "item-footer">
+                        <div class = "compare"><input type = "checkbox">Compare</div>
+                        <button class = "add">Add to</button>
+                    </div>                  
+                </div>
+                <div class = "item2">
+                    <img class = "fans" src = "images/fans1.jpg">
+                    <div class = "information">
+                        <p>BigAss</p>
+                        <p>Haiku H Series</p>
+                        <p>$3150-S0-BC-04-01-C-01</p>
+                    </div>
+                    <div class = "features">
+                        <p>5,467CFM</p>
+                        <p>21.14 W at max speed</p>
+                        <p>35dBA at max speed</p>
+                        <p>60 fan sweep diameter</p>
+                    </div>   
+                    <div class = "item-footer">
+                        <div class = "compare"><input type = "checkbox">Compare</div>
+                        <div><button class = "add">Add to</button></div>
+                    </div>                
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
