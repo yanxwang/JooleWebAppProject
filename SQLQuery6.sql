@@ -66,8 +66,8 @@ CREATE TABLE [dbo].[tblProjToProd]
 MERGE INTO tblUser AS Target 
 USING (VALUES 
         (1, 'Yan Wang', 'prcywang@gmail.com', '/images/person1.png', 'yw0724'), 
-        (2, 'Zha Zheng', 'yanxwang@gmail.com', '/images/person1.png', 'zz0627'), 
-        (3, 'Xuan Chu', 'yanxxwang@gmail.com', '/images/person1.png', 'xc0408')
+        (2, 'Zha Zheng', 'yanxwang@gmail.com', '/images/person2.png', 'zz0627'), 
+        (3, 'Xuan Chu', 'yanxxwang@gmail.com', '/images/person3.png', 'xc0408')
 ) 
 AS Source (User_ID, User_Name, User_Email, User_Image, User_Password) 
 ON Target.User_ID = Source.User_ID 
