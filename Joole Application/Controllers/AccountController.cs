@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Joole_Application.Models;
+
+namespace Joole_Application.Controllers
+{
+    public class AccountController : Controller
+    {
+        jooledatabaseEntities2 db = new jooledatabaseEntities2();
+        // GET: Account
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(string UserName, string Password)
+        {
+            //1.根据传递过来的用户名和密码，到数据库中查询是否存在
+            tblUser user = db.tblUsers.FirstOrDefault(t => t.User_Name == UserName && t.User_Password == Password);
+            if (user != null)
+            {
+                Session["login"] = user;
+                return RedirectToAction("index", "product");
+            }
+            else
+            {
+                TempData["msg"] = "wrong username/email or password!";
+                return View();
+            }
+        }
+        public ActionResult Register()
+        {
+            return View();
+        }
+    }
+}

@@ -552,8 +552,8 @@ ul>li a{
 
 .items{
     display:grid;
-    grid-template-columns: 25.5% 24% 24% 24%;
-    grid-template-rows: 530px 520px 520px 520px;
+    grid-template-columns: 26% 26% 26% 22%;
+    grid-template-rows: 530px 530px 530px 530px;
     grid-auto-flow: row;
     grid-column-gap: 15px;
     grid-row-gap: 15px;
@@ -600,7 +600,7 @@ ul>li a{
 }
 
 .fans{
-    width: 256px;
+    width: 230px;
     height: 200px;
 }
 
@@ -611,5 +611,28 @@ ul>li a{
 
 .compare{
     font-weight:600;
+    margin-left: 5px;
+}
+
+
+/*#user {
+    position: relative;
+    margin-top: -20px;
+    background-color: rgb(117, 117, 117);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: 240px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}*/
+
+#userimage {
+    position:relative;
+    width: 125px;
+    height: 125px;
+    margin-bottom: 6px;
     margin-left: 5px;
 }

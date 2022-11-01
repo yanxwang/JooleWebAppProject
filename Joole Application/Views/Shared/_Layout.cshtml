@@ -27,17 +27,16 @@
                             @if (Session["login"] == null)
                              {
                              <span>
-                                 @Html.ActionLink("Login", "login", "User") 
-                                 @Html.ActionLink("Register", "register", "User")
+                                 @Html.ActionLink("Login", "login", "Account") 
+                                 @Html.ActionLink("Register", "register", "Account")
                              </span>
                             }
                             else
                             {
-                                //从session中获取登陆的用户名
-                                string uname = ((tblUser)Session["login"]).User_Name;
-                                <span>
-                                    @uname   
-                                </span>
+                            //从session中获取登陆的用户名
+                            string uname = ((tblUser)Session["login"]).User_Name;
+                            string uimage = ((tblUser)Session["login"]).User_Image;
+                            <img id ="userimage" src="@uimage" alt="user-image">
                             }
                         </div>
                         <div class="search-helper"></div>
