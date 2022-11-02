@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="jooledatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblProduct">
           <Key>
             <PropertyRef Name="Product_ID" />
@@ -69,7 +69,7 @@
           <Property Name="User_Image" Type="varchar" MaxLength="50" />
           <Property Name="User_Password" Type="varchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__tblProjec__User___267ABA7A">
+        <Association Name="FK__tblProjec__User___5165187F">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
           <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
           <ReferentialConstraint>
@@ -81,7 +81,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblProjTo__Produ__2C3393D0">
+        <Association Name="FK__tblProjTo__Produ__571DF1D5">
           <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="1" />
           <End Role="tblProjToProd" Type="Self.tblProjToProd" Multiplicity="*" />
           <ReferentialConstraint>
@@ -93,7 +93,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblProjTo__Proje__2B3F6F97">
+        <Association Name="FK__tblProjTo__Proje__5629CD9C">
           <End Role="tblProject" Type="Self.tblProject" Multiplicity="1" />
           <End Role="tblProjToProd" Type="Self.tblProjToProd" Multiplicity="*" />
           <ReferentialConstraint>
@@ -105,20 +105,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DatabaseModelStoreContainer">
+        <EntityContainer Name="jooledatabaseModelStoreContainer">
           <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblProject" EntityType="Self.tblProject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblProjToProd" EntityType="Self.tblProjToProd" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__tblProjec__User___267ABA7A" Association="Self.FK__tblProjec__User___267ABA7A">
+          <AssociationSet Name="FK__tblProjec__User___5165187F" Association="Self.FK__tblProjec__User___5165187F">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblProject" EntitySet="tblProject" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblProjTo__Produ__2C3393D0" Association="Self.FK__tblProjTo__Produ__2C3393D0">
+          <AssociationSet Name="FK__tblProjTo__Produ__571DF1D5" Association="Self.FK__tblProjTo__Produ__571DF1D5">
             <End Role="tblProduct" EntitySet="tblProduct" />
             <End Role="tblProjToProd" EntitySet="tblProjToProd" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblProjTo__Proje__2B3F6F97" Association="Self.FK__tblProjTo__Proje__2B3F6F97">
+          <AssociationSet Name="FK__tblProjTo__Proje__5629CD9C" Association="Self.FK__tblProjTo__Proje__5629CD9C">
             <End Role="tblProject" EntitySet="tblProject" />
             <End Role="tblProjToProd" EntitySet="tblProjToProd" />
           </AssociationSet>
@@ -127,7 +127,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="jooledatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tblProduct">
           <Key>
             <PropertyRef Name="Product_ID" />
@@ -159,7 +159,7 @@
           <Property Name="Height_Max" Type="Int32" />
           <Property Name="Weight" Type="Int32" />
           <Property Name="Document_Path" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tblProjToProds" Relationship="Self.FK__tblProjTo__Produ__2C3393D0" FromRole="tblProduct" ToRole="tblProjToProd" />
+          <NavigationProperty Name="tblProjToProds" Relationship="Self.FK__tblProjTo__Produ__571DF1D5" FromRole="tblProduct" ToRole="tblProjToProd" />
         </EntityType>
         <EntityType Name="tblProject">
           <Key>
@@ -173,8 +173,8 @@
           <Property Name="Project_City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Project_State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Project_Postal_Code" Type="Int32" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblProjec__User___267ABA7A" FromRole="tblProject" ToRole="tblUser" />
-          <NavigationProperty Name="tblProjToProds" Relationship="Self.FK__tblProjTo__Proje__2B3F6F97" FromRole="tblProject" ToRole="tblProjToProd" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblProjec__User___5165187F" FromRole="tblProject" ToRole="tblUser" />
+          <NavigationProperty Name="tblProjToProds" Relationship="Self.FK__tblProjTo__Proje__5629CD9C" FromRole="tblProject" ToRole="tblProjToProd" />
         </EntityType>
         <EntityType Name="tblProjToProd">
           <Key>
@@ -184,8 +184,8 @@
           <Property Name="Project_ID" Type="Int32" Nullable="false" />
           <Property Name="Product_ID" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
-          <NavigationProperty Name="tblProduct" Relationship="Self.FK__tblProjTo__Produ__2C3393D0" FromRole="tblProjToProd" ToRole="tblProduct" />
-          <NavigationProperty Name="tblProject" Relationship="Self.FK__tblProjTo__Proje__2B3F6F97" FromRole="tblProjToProd" ToRole="tblProject" />
+          <NavigationProperty Name="tblProduct" Relationship="Self.FK__tblProjTo__Produ__571DF1D5" FromRole="tblProjToProd" ToRole="tblProduct" />
+          <NavigationProperty Name="tblProject" Relationship="Self.FK__tblProjTo__Proje__5629CD9C" FromRole="tblProjToProd" ToRole="tblProject" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
@@ -196,9 +196,9 @@
           <Property Name="User_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="User_Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="User_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tblProjects" Relationship="Self.FK__tblProjec__User___267ABA7A" FromRole="tblUser" ToRole="tblProject" />
+          <NavigationProperty Name="tblProjects" Relationship="Self.FK__tblProjec__User___5165187F" FromRole="tblUser" ToRole="tblProject" />
         </EntityType>
-        <Association Name="FK__tblProjTo__Produ__2C3393D0">
+        <Association Name="FK__tblProjTo__Produ__571DF1D5">
           <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="1" />
           <End Role="tblProjToProd" Type="Self.tblProjToProd" Multiplicity="*" />
           <ReferentialConstraint>
@@ -210,7 +210,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblProjec__User___267ABA7A">
+        <Association Name="FK__tblProjec__User___5165187F">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
           <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
           <ReferentialConstraint>
@@ -222,7 +222,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblProjTo__Proje__2B3F6F97">
+        <Association Name="FK__tblProjTo__Proje__5629CD9C">
           <End Role="tblProject" Type="Self.tblProject" Multiplicity="1" />
           <End Role="tblProjToProd" Type="Self.tblProjToProd" Multiplicity="*" />
           <ReferentialConstraint>
@@ -234,20 +234,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="jooledatabaseEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
           <EntitySet Name="tblProjects" EntityType="Self.tblProject" />
           <EntitySet Name="tblProjToProds" EntityType="Self.tblProjToProd" />
           <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
-          <AssociationSet Name="FK__tblProjTo__Produ__2C3393D0" Association="Self.FK__tblProjTo__Produ__2C3393D0">
+          <AssociationSet Name="FK__tblProjTo__Produ__571DF1D5" Association="Self.FK__tblProjTo__Produ__571DF1D5">
             <End Role="tblProduct" EntitySet="tblProducts" />
             <End Role="tblProjToProd" EntitySet="tblProjToProds" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblProjec__User___267ABA7A" Association="Self.FK__tblProjec__User___267ABA7A">
+          <AssociationSet Name="FK__tblProjec__User___5165187F" Association="Self.FK__tblProjec__User___5165187F">
             <End Role="tblUser" EntitySet="tblUsers" />
             <End Role="tblProject" EntitySet="tblProjects" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblProjTo__Proje__2B3F6F97" Association="Self.FK__tblProjTo__Proje__2B3F6F97">
+          <AssociationSet Name="FK__tblProjTo__Proje__5629CD9C" Association="Self.FK__tblProjTo__Proje__5629CD9C">
             <End Role="tblProject" EntitySet="tblProjects" />
             <End Role="tblProjToProd" EntitySet="tblProjToProds" />
           </AssociationSet>
@@ -257,9 +257,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="jooledatabaseModelStoreContainer" CdmEntityContainer="jooledatabaseEntities2">
           <EntitySetMapping Name="tblProducts">
-            <EntityTypeMapping TypeName="DatabaseModel.tblProduct">
+            <EntityTypeMapping TypeName="jooledatabaseModel.tblProduct">
               <MappingFragment StoreEntitySet="tblProduct">
                 <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
                 <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
@@ -292,7 +292,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblProjects">
-            <EntityTypeMapping TypeName="DatabaseModel.tblProject">
+            <EntityTypeMapping TypeName="jooledatabaseModel.tblProject">
               <MappingFragment StoreEntitySet="tblProject">
                 <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
                 <ScalarProperty Name="Project_Name" ColumnName="Project_Name" />
@@ -306,7 +306,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblProjToProds">
-            <EntityTypeMapping TypeName="DatabaseModel.tblProjToProd">
+            <EntityTypeMapping TypeName="jooledatabaseModel.tblProjToProd">
               <MappingFragment StoreEntitySet="tblProjToProd">
                 <ScalarProperty Name="P2P_ID" ColumnName="P2P_ID" />
                 <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
@@ -316,7 +316,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblUsers">
-            <EntityTypeMapping TypeName="DatabaseModel.tblUser">
+            <EntityTypeMapping TypeName="jooledatabaseModel.tblUser">
               <MappingFragment StoreEntitySet="tblUser">
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
                 <ScalarProperty Name="User_Name" ColumnName="User_Name" />

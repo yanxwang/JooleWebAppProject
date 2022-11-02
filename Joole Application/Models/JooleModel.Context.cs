@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JooleWebApplication.Models
+namespace Joole_Application.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DatabaseEntities : DbContext
+    public partial class jooledatabaseEntities2 : DbContext
     {
-        public DatabaseEntities()
-            : base("name=DatabaseEntities")
+        public jooledatabaseEntities2()
+            : base("name=jooledatabaseEntities2")
         {
         }
     

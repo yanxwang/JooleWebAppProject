@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\SDE\CSharp\JooleWebApplication\Models\JooleModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\11729\OneDrive\桌面\C#笔记\基础班\Joole Application\Models\jooleModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

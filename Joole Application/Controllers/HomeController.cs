@@ -3,31 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using JooleWebApplication.Models;
+using Joole_Application.Models;
 
-namespace JooleWebApplication.Controllers
+namespace Joole_Application.Controllers
 {
     public class HomeController : Controller
     {
+        jooledatabaseEntities2 db = new jooledatabaseEntities2();
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
         
+        {
+            //查询，获取所有的产品信息
+            //List<tblProduct> list1 = db.tblProducts.OrderByDescending(t => t.ModeL_Year).ToList();
+            ViewBag.list = db.tblProducts.OrderByDescending(t => t.ModeL_Year).ToList();
+            return View();
+        }
     }
 }

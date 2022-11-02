@@ -1,4 +1,4 @@
-﻿@model JooleWebApplication.Models.tblUser
+﻿@model Joole_Application.Models.tblUser
 @{
     Layout = null;
     ViewBag.Title = "Create";
@@ -30,7 +30,7 @@
                     <input type="file" id="image_input" accept="image/png,image/jpg, image/jpeg" />
                     <div class="form-element">
                         <label for="username">UserName:</label>
-                        <input type="text" name="User_Name" id="username" placeholder="User Name" />
+                        <input type="text" name ="User_Name" id="username" placeholder="User Name" />
                     </div>
                     <div class="form-element">
                         <label for="email">Email Address:</label>
@@ -45,29 +45,29 @@
                         <input type="password" name="confirmed" id="Con-password" placeholder="Password" />
                     </div>
                     <div class="form=element">
-                        <input type="submit" value="Sign up" id="submit" />
+                        <input type="submit" value="Sign up" id="submit"/>
                     </div>
                 </div>
             </div>
         }
         <div style="color:red">@TempData["msg"]</div>
     </div>
-    <script src="~/Scripts/register.js"></script>
+     <script src="~/Scripts/register.js"></script>
     <script>
         $(function () {
             //验证的内容是表单之中的标签，标签输入的内容是需要符合我们指定的规则
             $("#RegisterForm").validate({
                 rules: {
                     //写入要校验的标签的name属性
-                    username: {
+                    User_Name: {
                         required: true,
                         minlength: 2
                     },
-                    email: {
+                    User_Email: {
                         required: true,
                         email: true
                     },
-                    password: {
+                    User_Password: {
                         required: true,
                         minlength: 6,
                         maxlength: 16
@@ -94,11 +94,11 @@
                     confirmed: {
                         equalTo:"the password are not the same."
                     }
-                }
+                }   
             })
         })
     </script>
-</body>
+    </body>
 </html>
 
 
