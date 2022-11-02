@@ -1,0 +1,56 @@
+﻿@model IEnumerable<compareTest.Models.tblProduct>
+
+@{
+    ViewBag.Title = "test";
+    System.Collections.ArrayList test = new System.Collections.ArrayList();
+}
+
+<h2>test</h2>
+
+<div>
+    @foreach (var item in Model)
+    {
+        @Html.DisplayFor(modelItem => item.Series)
+        <input id="@item.Series" type="checkbox" onclick="addToCompare(this.id); sendData()">
+        //<input type="checkbox" name="check" value="@item.Series">
+        //<input id="@item.Series" type="checkbox" name="Check" value="@item.Series">
+        <br />
+    }
+</div>
+
+<div>
+    <!--Button that links to the compare page-->
+    <form action="../tblProducts/Compare">
+        <input type="submit" value="Compare" />
+    </form>
+</div>
+
+<script type="text/javascript">
+    var comparelist = [];
+    sessionStorage.setItem("selections", []);
+
+    function addToCompare(iD) {
+        var checkBox = document.getElementById(iD);
+        var text = document.getElementById("text");
+
+        if (checkBox.checked == true) {
+            comparelist.push(iD);
+        } else {
+            comparelist.splice(comparelist.indexOf(iD),1);
+        }
+        sessionStorage.setItem("selections", comparelist);
+    }
+
+    function sendData() {
+        //var sepID = sessionStorage.getItem("selections").toString();
+        var sepID = sessionStorage.getItem("selections")
+        //var sepID = compareList.toString()
+        $.ajax({
+            url: "sendData",
+            type: "POST",
+            data: { ItemList: sepID },
+            success: function (response) { }
+        });
+        //console.log("yes")
+    }
+</script>

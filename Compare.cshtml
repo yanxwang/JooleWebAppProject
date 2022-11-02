@@ -1,0 +1,411 @@
+﻿@model IEnumerable<compareTest.Models.tblProduct>
+<!--Change the model later-->
+
+@{
+    ViewBag.Title = "Compare Products";
+    var param = ViewBag.Products;
+    var failsafe = new string[2] { "Haiku H", "Aviation" };
+}
+<h2>Compare</h2>
+<!--Unused HyperLink Styles-->
+<!--
+<style>
+    a:link {
+        color: steelblue;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: steelblue;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: steelblue;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+
+    a:active {
+        color: steelblue;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+</style>
+-->
+<!--HyperLinks-->
+<a href="../tblProducts/Testt">Mechanical</a> <!-- Not sure if we're going to have a mechanical page -->
+<text style="color:steelblue"> > </text>
+<a href="../tblProducts/Testt"> HVAC Fans</a> <!-- Link this to Product Details page when it is completed -->
+<text style="color:steelblue"> > </text>
+
+<a>Compare</a>
+
+<!--Table Style-->
+<style>
+    table {
+        table-layout: fixed;
+    }
+
+    table {
+        border: 1px solid lightgray;
+        border-collapse: collapse;
+    }
+
+        table td {
+            border-left: 1px solid lightgray;
+            border-right: 1px solid lightgray;
+            border-collapse: collapse;
+        }
+
+            table td:first-child {
+                border-left: none;
+            }
+
+            table td:last-child {
+                border-right: none;
+            }
+</style>
+
+<!--Table-->
+<table class="table">
+    <tr>
+        <td></td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product_Image)
+                    Image
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight:bold; background-color:lightgray">DESCRIPTION</td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td style="background-color:lightgray"></td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Manufacture
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Manufacturer_Name)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Series
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Series)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Model
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">TYPE</td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td style="background-color:lightgray"></td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Use Type
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Application
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Application)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Mounting Location
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mounting_Location)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Accessories
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Accessories)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Model Year
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModeL_Year)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">TECHNICAL SPECIFICATIONS</td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td style="background-color:lightgray"></td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Air Flow (CFM)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Air_Flow)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Max Power (W)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Power_Max)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Min Power (W)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Power_Min)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Max Operating Voltage (VAC)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Operating_Voltage_Max)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Min Operating Voltage (VAC)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Operating_Voltage_Min)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Max Fan Speed (RPM)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fan_Speed_Max)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Min Fan Speed (RPM)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fan_Speed_Min)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Number of Fan Speeds
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_Of_Fan_Speed)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Sound at Max Speed (dBA)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sound_At_Max_Speed)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Fan Sweep Diameter (in)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fan_Sweep_Diameter)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Max Height (in)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Height_Max)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Min Height (in)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Height_Min)
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="font-weight: bold; background-color: lightgray">
+            Weight (lbs)
+        </td>
+        @foreach (var item in Model)
+        {
+            if (param.Contains(item.Series))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight)
+                </td>
+            }
+        }
+    </tr>
+</table>

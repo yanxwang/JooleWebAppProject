@@ -1,6 +1,9 @@
 ﻿@using Joole_Application.Models
+@*@model IEnumerable<Joole_Application.Models.tblProduct>*@
 @{
     List<tblProduct> list = ViewBag.list;
+    //List<tblProduct> list = ViewBag.list;
+    List<tblProduct> list1 = ViewBag.list1;
     ViewBag.Title = "Product";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -123,67 +126,36 @@
     </div>
     <div class="right">
         <h3 id="item_name">HVAC Fans</h3>
-        @*<div class="items">
-            <div class="item1">
-                <img class="fans" src="~/images/fans2.jpg">
-                <div class="information">
-                    <p>BigAss</p>
-                    <p>Haiku H Series</p>
-                    <p>$3150-S0-BC-04-01-C-01</p>
-                </div>
-                <div class="features">
-                    <p>5,467CFM</p>
-                    <p>21.14 W at max speed</p>
-                    <p>35dBA at max speed</p>
-                    <p>60 fan sweep diameter</p>
-                </div>
-                <div class="item-footer">
-                    <div class="compare"><input type="checkbox">Compare</div>
-                    <button class="add">Add to</button>
-                </div>
-            </div>
-            <div class="item2">
-                <img class="fans" src="~/images/fans1.jpg">
-                <div class="information">
-                    <p>BigAss</p>
-                    <p>Haiku H Series</p>
-                    <p>$3150-S0-BC-04-01-C-01</p>
-                </div>
-                <div class="features">
-                    <p>5,467CFM</p>
-                    <p>21.14 W at max speed</p>
-                    <p>35dBA at max speed</p>
-                    <p>60 fan sweep diameter</p>
-                </div>
-                <div class="item-footer">
-                    <div class="compare"><input type="checkbox">Compare</div>
-                    <div><button class="add">Add to</button></div>
-                </div>
-            </div>
-        </div>*@
         <div class=" items">
-            @foreach (var item in list)
+            @if (list1.Count() == 0)
             {
-                <div class="item">
-                    <img class="fans" src="@item.Product_Image" alt="fans-image"/>
-                    <div class="information">
-                        <p>@item.Product_Name</p>
-                        <p>@item.Series</p>
-                        <p>@item.Model</p>
-                    </div>
-                    <div class="features">
-                        <p>@item.Air_Flow CFM</p>
-                        <p>@item.Power_Max W at max speed</p>
-                        <p>@item.Sound_At_Max_Speed dBA at max speed</p>
-                        <p>@item.Fan_Sweep_Diameter fan sweep diameter</p>
-                    </div>
-                    <div class="item-footer">
-                        <div class="compare"><input type="checkbox">Compare</div>
-                        <button class="add">Add to</button>
-                    </div>
-                </div>
+                <p>No match!</p>
             }
-            <div style = "clear: both;"></div>
+            else
+            {
+                foreach (var item in list1)
+                {
+                    <div class="item">
+                        <img class="fans" src="@item.Product_Image" alt="fans-image" />
+                        <div class="information">
+                            <p>@item.Product_Name</p>
+                            <p>@item.Series</p>
+                            <p>@item.Model</p>
+                        </div>
+                        <div class="features">
+                            <p>@item.Air_Flow CFM</p>
+                            <p>@item.Power_Max W at max speed</p>
+                            <p>@item.Sound_At_Max_Speed dBA at max speed</p>
+                            <p>@item.Fan_Sweep_Diameter fan sweep diameter</p>
+                        </div>
+                        <div class="item-footer">
+                            <div class="compare"><input type="checkbox">Compare</div>
+                            <button class="add">Add to</button>
+                        </div>
+                    </div>
+                }
+            }
+            <div style="clear: both;"></div>
         </div>
     </div>
 </div>

@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Product_Image" Type="varchar" MaxLength="50" />
+    <Property Name="Manufacturer_Name" Type="varchar" MaxLength="50" />
+    <Property Name="SubCategory_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Category_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Series" Type="varchar" MaxLength="50" />
+    <Property Name="Model" Type="varchar" MaxLength="50" />
+    <Property Name="ModeL_Year" Type="int" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Application" Type="varchar" MaxLength="50" />
+    <Property Name="Mounting_Location" Type="varchar" MaxLength="50" />
+    <Property Name="Accessories" Type="varchar" MaxLength="50" />
+    <Property Name="Air_Flow" Type="int" />
+    <Property Name="Power_Min" Type="int" />
+    <Property Name="Power_Max" Type="int" />
+    <Property Name="Operating_Voltage_Min" Type="int" />
+    <Property Name="Operating_Voltage_Max" Type="int" />
+    <Property Name="Fan_Speed_Min" Type="int" />
+    <Property Name="Fan_Speed_Max" Type="int" />
+    <Property Name="Number_Of_Fan_Speed" Type="int" />
+    <Property Name="Sound_At_Max_Speed" Type="int" />
+    <Property Name="Fan_Sweep_Diameter" Type="int" />
+    <Property Name="Height_Min" Type="int" />
+    <Property Name="Height_Max" Type="int" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="Document_Path" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblProject">
+    <Key>
+      <PropertyRef Name="Project_ID" />
+    </Key>
+    <Property Name="Project_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Project_Name" Type="varchar" MaxLength="50" />
+    <Property Name="User_id" Type="int" />
+    <Property Name="Project_Address1" Type="varchar" MaxLength="50" />
+    <Property Name="Project_Address2" Type="varchar" MaxLength="50" />
+    <Property Name="Project_City" Type="varchar" MaxLength="50" />
+    <Property Name="Project_State" Type="varchar" MaxLength="50" />
+    <Property Name="Project_Postal_Code" Type="int" />
+  </EntityType>
+  <EntityType Name="tblProjToProd">
+    <Key>
+      <PropertyRef Name="P2P_ID" />
+    </Key>
+    <Property Name="P2P_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Project_ID" Type="int" Nullable="false" />
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Name" Type="varchar" MaxLength="50" />
+    <Property Name="User_Email" Type="varchar" MaxLength="50" />
+    <Property Name="User_Image" Type="varchar" MaxLength="50" />
+    <Property Name="User_Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__tblProjec__User___267ABA7A">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+    <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="tblProject">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjTo__Produ__2C3393D0">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="1" />
+    <End Role="tblProjToProd" Type="Self.tblProjToProd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="tblProjToProd">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjTo__Proje__2B3F6F97">
+    <End Role="tblProject" Type="Self.tblProject" Multiplicity="1" />
+    <End Role="tblProjToProd" Type="Self.tblProjToProd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProject">
+        <PropertyRef Name="Project_ID" />
+      </Principal>
+      <Dependent Role="tblProjToProd">
+        <PropertyRef Name="Project_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProject" EntityType="Self.tblProject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjToProd" EntityType="Self.tblProjToProd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblProjec__User___267ABA7A" Association="Self.FK__tblProjec__User___267ABA7A">
+      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="tblProject" EntitySet="tblProject" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjTo__Produ__2C3393D0" Association="Self.FK__tblProjTo__Produ__2C3393D0">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="tblProjToProd" EntitySet="tblProjToProd" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjTo__Proje__2B3F6F97" Association="Self.FK__tblProjTo__Proje__2B3F6F97">
+      <End Role="tblProject" EntitySet="tblProject" />
+      <End Role="tblProjToProd" EntitySet="tblProjToProd" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
