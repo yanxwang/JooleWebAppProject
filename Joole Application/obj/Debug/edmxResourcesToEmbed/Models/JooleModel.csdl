@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="jooledatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Product_Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Manufacturer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubCategory_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Series" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModeL_Year" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Application" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mounting_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Accessories" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Air_Flow" Type="Int32" />
+    <Property Name="Power_Min" Type="Int32" />
+    <Property Name="Power_Max" Type="Int32" />
+    <Property Name="Operating_Voltage_Min" Type="Int32" />
+    <Property Name="Operating_Voltage_Max" Type="Int32" />
+    <Property Name="Fan_Speed_Min" Type="Int32" />
+    <Property Name="Fan_Speed_Max" Type="Int32" />
+    <Property Name="Number_Of_Fan_Speed" Type="Int32" />
+    <Property Name="Sound_At_Max_Speed" Type="Int32" />
+    <Property Name="Fan_Sweep_Diameter" Type="Int32" />
+    <Property Name="Height_Min" Type="Int32" />
+    <Property Name="Height_Max" Type="Int32" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Document_Path" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblProjToProds" Relationship="Self.FK__tblProjTo__Produ__571DF1D5" FromRole="tblProduct" ToRole="tblProjToProd" />
+  </EntityType>
+  <EntityType Name="tblProject">
+    <Key>
+      <PropertyRef Name="Project_ID" />
+    </Key>
+    <Property Name="Project_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Project_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_id" Type="Int32" />
+    <Property Name="Project_Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Project_Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Project_City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Project_State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Project_Postal_Code" Type="Int32" />
+    <NavigationProperty Name="tblUser" Relationship="Self.FK__tblProjec__User___5165187F" FromRole="tblProject" ToRole="tblUser" />
+    <NavigationProperty Name="tblProjToProds" Relationship="Self.FK__tblProjTo__Proje__5629CD9C" FromRole="tblProject" ToRole="tblProjToProd" />
+  </EntityType>
+  <EntityType Name="tblProjToProd">
+    <Key>
+      <PropertyRef Name="P2P_ID" />
+    </Key>
+    <Property Name="P2P_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Project_ID" Type="Int32" Nullable="false" />
+    <Property Name="Product_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="tblProduct" Relationship="Self.FK__tblProjTo__Produ__571DF1D5" FromRole="tblProjToProd" ToRole="tblProduct" />
+    <NavigationProperty Name="tblProject" Relationship="Self.FK__tblProjTo__Proje__5629CD9C" FromRole="tblProjToProd" ToRole="tblProject" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblProjects" Relationship="Self.FK__tblProjec__User___5165187F" FromRole="tblUser" ToRole="tblProject" />
+  </EntityType>
+  <Association Name="FK__tblProjTo__Produ__571DF1D5">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="1" />
+    <End Role="tblProjToProd" Type="Self.tblProjToProd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="tblProjToProd">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__User___5165187F">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+    <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="tblProject">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjTo__Proje__5629CD9C">
+    <End Role="tblProject" Type="Self.tblProject" Multiplicity="1" />
+    <End Role="tblProjToProd" Type="Self.tblProjToProd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProject">
+        <PropertyRef Name="Project_ID" />
+      </Principal>
+      <Dependent Role="tblProjToProd">
+        <PropertyRef Name="Project_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="jooledatabaseEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
+    <EntitySet Name="tblProjects" EntityType="Self.tblProject" />
+    <EntitySet Name="tblProjToProds" EntityType="Self.tblProjToProd" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+    <AssociationSet Name="FK__tblProjTo__Produ__571DF1D5" Association="Self.FK__tblProjTo__Produ__571DF1D5">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblProjToProd" EntitySet="tblProjToProds" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__User___5165187F" Association="Self.FK__tblProjec__User___5165187F">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblProject" EntitySet="tblProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjTo__Proje__5629CD9C" Association="Self.FK__tblProjTo__Proje__5629CD9C">
+      <End Role="tblProject" EntitySet="tblProjects" />
+      <End Role="tblProjToProd" EntitySet="tblProjToProds" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Joole_Application.Models.tblProduct>
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+@using (Html.BeginForm("Search", "Search", FormMethod.Get))
+{
+    //@Html.TextBox("cat")<input type="submit" value="Search" />
+    <select class="form-control" id="cat" name="cat">
+        <option>Select Category</option>
+        <option>Mechanical</option>
+        <option>Electrical</option>
+        <option>Stationary</option>
+        <option>Furniture</option>
+    </select>
+    <select class="form-control" id="subcat" name="subcat">
+        <option>Select SubCategory</option>
+        <option>Fans</option>
+        <option>Vaccums</option>
+        <option>Toasters</option>
+    </select>
+    <input>
+    <input type="submit" value="Search" />
+}
+<table>
+    <tr>
+        <th>Product Name</th>
+        <th>Product id</th>
+        <th>Product series</th>
+    </tr>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td>
+                    No match!
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Product_Name</td>
+                    <td>@item.Product_ID</td>
+                    <td>@item.Series</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
