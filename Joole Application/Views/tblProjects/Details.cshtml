@@ -1,0 +1,74 @@
+﻿@model JooleWebApplication.Models.tblProject
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblProject</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project_Address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project_Address1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project_Address2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project_Address2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project_City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project_City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project_State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project_State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project_Postal_Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project_Postal_Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblUser.User_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblUser.User_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Project_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
