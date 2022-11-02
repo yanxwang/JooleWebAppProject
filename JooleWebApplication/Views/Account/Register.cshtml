@@ -1,0 +1,104 @@
+﻿@model JooleWebApplication.Models.tblUser
+@{
+    Layout = null;
+    ViewBag.Title = "Create";
+}
+
+<!doctype html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>register</title>
+    <link href="~/css/register_style.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-3.4.1.js"></script>
+    <script src="~/scripts/jquery.validate.js"></script>
+
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "RegisterForm" }))
+        {
+            <div class="popup">
+                <div class="close-btn">&times;</div>
+                <div class="form">
+                    <h2>register as user</h2>
+                    <div class="imagepre">image preview</div>
+                    <div class="user"></div>
+                    <div class="your profile pic">your profile pic</div>
+                    <div id="display_image"></div>
+                    <input type="file" id="image_input" accept="image/png,image/jpg, image/jpeg" />
+                    <div class="form-element">
+                        <label for="username">UserName:</label>
+                        <input type="text" name="User_Name" id="username" placeholder="User Name" />
+                    </div>
+                    <div class="form-element">
+                        <label for="email">Email Address:</label>
+                        <input type="email" name="User_Email" id="email" placeholder="Email id" />
+                    </div>
+                    <div class="form-element">
+                        <label for="password">Password</label>
+                        <input type="password" name="User_Password" id="password" placeholder="Password" />
+                    </div>
+                    <div class="form-element">
+                        <label for="Con-password">Confirmed Password</label>
+                        <input type="password" name="confirmed" id="Con-password" placeholder="Password" />
+                    </div>
+                    <div class="form=element">
+                        <input type="submit" value="Sign up" id="submit" />
+                    </div>
+                </div>
+            </div>
+        }
+        <div style="color:red">@TempData["msg"]</div>
+    </div>
+    <script src="~/Scripts/register.js"></script>
+    <script>
+        $(function () {
+            //验证的内容是表单之中的标签，标签输入的内容是需要符合我们指定的规则
+            $("#RegisterForm").validate({
+                rules: {
+                    //写入要校验的标签的name属性
+                    username: {
+                        required: true,
+                        minlength: 2
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 16
+                    },
+                    confirmed: {
+                        equalTo:"#password"
+                    }
+                },
+                message: {
+                    username: {
+                        required: "Your username cannot be empty",
+                        minlength: "the username cannot be less than 2 letters"
+                    },
+                    email: {
+                        required: "Your email cannot be empty",
+                        email:"This is not a email"
+                    },
+                    password: {
+                        required: "Your password cannot be empty",
+                        minlength: "Your password cannot be less than 6 letters",
+                        maxlength:"Your password cannot be more than 16 letters"
+
+                    },
+                    confirmed: {
+                        equalTo:"the password are not the same."
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+</html>
+
+
