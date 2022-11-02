@@ -1,3 +1,4 @@
+<<<<<<< HEAD:JooleWebApplication/Models/JooleModel.edmx.diagram
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
@@ -15,4 +16,23 @@
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48bc2495d6ae42b3b271a66f9139dbcb" Name="Diagram1">
+        <EntityTypeShape EntityType="jooledatabaseModel.tblProduct" Width="1.5" PointX="4.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="jooledatabaseModel.tblProject" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="jooledatabaseModel.tblProjToProd" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="jooledatabaseModel.tblUser" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="jooledatabaseModel.FK__tblProjTo__Produ__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="jooledatabaseModel.FK__tblProjec__User___5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="jooledatabaseModel.FK__tblProjTo__Proje__5629CD9C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+>>>>>>> 69a762f6cd11d79ffdbab7181355d8b9a1ba6c36:Joole Application/Models/JooleModel.edmx.diagram
 </edmx:Edmx>

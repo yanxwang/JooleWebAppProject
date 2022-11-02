@@ -130,10 +130,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+<<<<<<< HEAD:JooleWebApplication/JooleWebApplication.csproj
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\tblProductsController.cs" />
     <Compile Include="Controllers\tblProjectsController.cs" />
     <Compile Include="Controllers\tblUsersController.cs" />
+=======
+    <Compile Include="Controllers\ProductController.cs" />
+>>>>>>> 69a762f6cd11d79ffdbab7181355d8b9a1ba6c36:Joole Application/JooleApplication.csproj
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,6 +199,11 @@
       <DependentUpon>JooleModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+<<<<<<< HEAD:JooleWebApplication/JooleWebApplication.csproj
+=======
+    <Content Include="Scripts\filter.js" />
+    <Content Include="Scripts\index.js" />
+>>>>>>> 69a762f6cd11d79ffdbab7181355d8b9a1ba6c36:Joole Application/JooleApplication.csproj
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -236,8 +245,12 @@
     <Content Include="Views\tblUsers\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+<<<<<<< HEAD:JooleWebApplication/JooleWebApplication.csproj
     <Content Include="Views\tblProducts\Compare.cshtml" />
     <Content Include="Views\tblProducts\Search.cshtml" />
+=======
+    <Content Include="Views\Product\Searchmain.cshtml" />
+>>>>>>> 69a762f6cd11d79ffdbab7181355d8b9a1ba6c36:Joole Application/JooleApplication.csproj
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
