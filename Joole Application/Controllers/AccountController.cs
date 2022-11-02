@@ -39,5 +39,22 @@ namespace Joole_Application.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Register(tblUser user)
+        {
+
+            if(user!= null)
+            {
+                db.tblUsers.Add(user);
+                db.SaveChanges();
+                TempData["msg"] = "Congrats! You have registered successfully, please log in.";
+                return View("login");
+            }
+            else
+            {
+                TempData["msg"] = "Register failed, please register again!";
+                return View();
+            }
+        }
     }
 }

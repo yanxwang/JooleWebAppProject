@@ -1,3 +1,6 @@
+/// <reference path="jquery-3.4.1.js" />
+/// <reference path="jquery-3.4.1.js" />
+/// <reference path="jquery-3.4.1.js" />
 //1
 let range1 = document.querySelectorAll('.range-slider1 input');
 progress1 = document.querySelector('.range-slider1 .progress');
@@ -110,4 +113,3 @@ range4.forEach(input => {
 
     
 
-       
