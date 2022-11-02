@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Joole_Application.Models;
+using JooleWebApplication.Models;
 
 namespace Joole_Application.Controllers
 {
     public class AccountController : Controller
     {
-        jooledatabaseEntities2 db = new jooledatabaseEntities2();
+        DatabaseEntities db = new DatabaseEntities();
         // GET: Account
         public ActionResult Index()
         {
@@ -27,7 +27,7 @@ namespace Joole_Application.Controllers
             if (user != null)
             {
                 Session["login"] = user;
-                return RedirectToAction("index", "product");
+                return RedirectToAction("index", "tblproducts");
             }
             else
             {
@@ -43,7 +43,7 @@ namespace Joole_Application.Controllers
         public ActionResult Register(tblUser user)
         {
 
-            if(user!= null)
+            if (user != null)
             {
                 db.tblUsers.Add(user);
                 db.SaveChanges();

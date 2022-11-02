@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Joole_Application.Models
+namespace JooleWebApplication.Models
 {
     using System;
     using System.Collections.Generic;
