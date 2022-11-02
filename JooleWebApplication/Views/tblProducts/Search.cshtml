@@ -1,0 +1,26 @@
+﻿@model IEnumerable<JooleWebApplication.Models.tblProduct>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+@using (Html.BeginForm("Index", "tblProducts", FormMethod.Get))
+{
+    //@Html.TextBox("cat")<input type="submit" value="Search" />
+    <select class="form-control" id="cat" name="cat">
+        <option>Select Category</option>
+        <option>Mechanical</option>
+        <option>Electrical</option>
+        <option>Stationary</option>
+        <option>Furniture</option>
+    </select>
+    <select class="form-control" id="subcat" name="subcat">
+        <option>Select SubCategory</option>
+        <option>Fans</option>
+        <option>Vaccums</option>
+        <option>Toasters</option>
+    </select>
+    <input type="submit" value="Search" />
+}

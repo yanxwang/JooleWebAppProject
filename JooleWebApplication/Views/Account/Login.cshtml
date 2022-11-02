@@ -1,0 +1,64 @@
+<<<<<<< HEAD:JooleWebApplication/Views/Account/Login.cshtml
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/css/login_style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="large-image">
+        <img src="~/images/logo2.png" />
+    </div>
+    <h1>Building Product Selection Platform</h1>
+    <div id="login">
+        @using (Html.BeginForm("login", "Account", FormMethod.Post))
+        {
+            <input name="UserName" type="text" class="input-block" placeholder="Username or Email" />
+            <input name="Password" type="password" class="input-block" placeholder="Password" />
+            <input type="submit" id="submit" value="Login" />
+        }
+
+        <div style="color:red">@TempData["msg"]</div>
+    </div>
+    <div id="register">
+        @Html.ActionLink("Register", "Register")
+    </div>
+</body>
+</html>
+=======
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href= "~/css/login_style.css" rel= "stylesheet"/>
+</head>
+<body>
+    <div class="large-image"><img src="~/images/logo2.png"/>
+    </div>
+    <h1>Building Product Selection Platform</h1>
+    <div id="login">
+        @using (Html.BeginForm("login", "Account", FormMethod.Post))
+        {
+            <input name="UserName" type="text" class="input-block" placeholder="Username or Email" />
+            <input name="Password" type="password" class="input-block" placeholder="Password" />
+            <input type="submit" id="submit" value="Login"/>
+        }
+        <div style="color:red">@TempData["msg"]</div>
+    </div>
+</body>
+</html>
+>>>>>>> 69a762f6cd11d79ffdbab7181355d8b9a1ba6c36:Joole Application/Views/Account/Login.cshtml
